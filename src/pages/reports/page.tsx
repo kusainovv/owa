@@ -17,5 +17,7 @@ export const Reports = () => {
 const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px 0;
+    gap: 50px 0;
+    width: 650px;
+    margin: 0 auto;
 `;

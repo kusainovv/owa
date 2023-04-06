@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx";
-import { AnalyticsCardDimension } from "./typing";
-import { postAnalyticsData } from "../../../shared/api/handlers";
+import { AnalyticsCardDimension } from "../pages/reports/analytics/typing";
+import { postAnalyticsData } from "../shared/api/handlers";
 
-export class AnalyticsCardFormStore {
+export class AnalyticsCardForm {
     date_from = '';
     date_to = '';
     dimension = [] as typeof AnalyticsCardDimension[];

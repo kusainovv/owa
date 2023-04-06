@@ -1,18 +1,15 @@
 import { Button, Card, Form } from "antd";
-import Title from "antd/es/typography/Title";
 import React from "react";
 import { Label } from "../../../shared/styling/Label";
 import { NumericInput } from "../../../widgets/table/NumericInput";
-import { TransactionListCardFormStore } from "./model";
 import styled from "@emotion/styled";
+import { TransactionListCardForm } from "../../../entities/transactionListCardForm";
 
-const store = new TransactionListCardFormStore();
+const store = new TransactionListCardForm();
 
 export const TransactionListCard = () => {
-    return <Card>
-        <Title>Список транзакций (версия 3)</Title>
-
-        <FormWrapper name="analytics data">
+    return <Card title="Список транзакций (версия 3)">
+        <FormWrapper name="transaction list data">
 
             <Label>
                 Количество элементов на странице.
@@ -43,7 +40,7 @@ export const TransactionListCard = () => {
 }
 
 const FormWrapper = styled(Form)`
-    width: 500px;
+    max-width: 650px;
 `;
 
 const ButtonWrapper = styled(Button)`

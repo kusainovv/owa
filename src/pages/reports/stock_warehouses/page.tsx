@@ -1,19 +1,16 @@
 import styled from '@emotion/styled';
 import { Button, Card, Form, Select } from 'antd';
-import Title from 'antd/es/typography/Title';
 import React from 'react';
 import { Label } from '../../../shared/styling/Label';
 import { NumericInput } from '../../../widgets/table/NumericInput';
-import { StockWarehouseCardFormStore } from './model';
 import { observer } from 'mobx-react';
+import { StockWarehouseCardForm } from '../../../entities/stockWarehousesCardForm';
 
-const store = new StockWarehouseCardFormStore();
+const store = new StockWarehouseCardForm();
 
 export const StockWarehouseCard = observer(() => {
-    return <Card>
-        <Title>Отчёт по остаткам и товарам (версия 2)</Title>
-
-        <FormWrapper name="analytics data">
+    return <Card title="Отчёт по остаткам и товарам (версия 2)">
+        <FormWrapper name="stock warehouses data">
 
             <Label>
                 Количество ответов на странице.
@@ -54,7 +51,7 @@ export const StockWarehouseCard = observer(() => {
 });
 
 const FormWrapper = styled(Form)`
-    width: 500px;
+    max-width: 650px;
 `;
 
 const ButtonWrapper = styled(Button)`

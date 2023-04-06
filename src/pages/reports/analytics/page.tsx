@@ -1,17 +1,15 @@
 import { Button, Card, Form, Input, Select } from "antd";
 import React from "react";
-import Title from "antd/es/typography/Title";
 import styled from "@emotion/styled";
 import { NumericInput } from "../../../widgets/table/NumericInput";
 import { Label } from "../../../shared/styling/Label";
-import { AnalyticsCardFormStore } from "./model";
 import { observer } from "mobx-react";
+import { AnalyticsCardForm } from "../../../entities/analyticsCardForm";
 
-const store = new AnalyticsCardFormStore();
+const store = new AnalyticsCardForm();
   
 export const AnalyticsCard = observer(() => {
-    return <Card>
-        <Title>Данные аналитики</Title>
+    return <Card title="Данные аналитики">
         <FormWrapper name="analytics data">
             <Label>
                 С даты
@@ -136,7 +134,7 @@ export const AnalyticsCard = observer(() => {
 });
 
 const FormWrapper = styled(Form)`
-    width: 500px;
+    max-width: 650px;
 `;
 
 const ButtonWrapper = styled(Button)`

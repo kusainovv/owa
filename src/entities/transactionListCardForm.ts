@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { postWarehousesData } from "../../../shared/api/handlers";
+import { postWarehousesData } from "../shared/api/handlers";
 
-export class TransactionListCardFormStore {
+export class TransactionListCardForm {
     pageSize = '';
     page = '';
     warehouse_type = '';

@@ -1,0 +1,1 @@
+export const AnalyticsCardDimension = 'unknownDimension' || 'sku' || 'spu' || 'day' || 'week' || 'month' || 'year' || 'category1' || 'category2' || 'category3' || 'category4' || 'brand' || 'modelID';

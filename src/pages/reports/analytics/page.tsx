@@ -2,16 +2,14 @@ import { Button, Card, Form, Input, Select } from "antd";
 import React from "react";
 import Title from "antd/es/typography/Title";
 import styled from "@emotion/styled";
-import TextArea from "antd/es/input/TextArea";
-import { NumericInput } from "../../../shared/core/NumericInput";
+import { NumericInput } from "../../../widgets/table/NumericInput";
 import { Label } from "../../../shared/styling/Label";
 import { AnalyticsCardFormStore } from "./model";
 import { observer } from "mobx-react";
 
-const store = new AnalyticsCardFormStore()
+const store = new AnalyticsCardFormStore();
   
 export const AnalyticsCard = observer(() => {
-    console.warn(store);
     return <Card>
         <Title>Данные аналитики</Title>
         <FormWrapper name="analytics data">
@@ -143,8 +141,4 @@ const FormWrapper = styled(Form)`
 
 const ButtonWrapper = styled(Button)`
     width: 100%;
-`;
-
-const TextAreaWrapper = styled(TextArea)`
-
 `;

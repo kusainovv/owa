@@ -32,7 +32,7 @@ export const StockWarehouseCard = observer(() => {
             <Label>
                 Фильтр по типу склада:
                 <Select
-                    defaultValue="lucy"
+                    placeholder='ALL'
                     onChange={(field) => {
                         store.updateWarehouseType(field);
                     }}

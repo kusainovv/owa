@@ -1,5 +1,5 @@
 import { Button, Card, Form, Input, Select } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { NumericInput } from "../../../widgets/table/NumericInput";
 import { Label } from "../../../shared/styling/Label";
@@ -9,6 +9,7 @@ import { AnalyticsCardForm } from "../../../entities/analyticsCardForm";
 const store = new AnalyticsCardForm();
   
 export const AnalyticsCard = observer(() => {
+    const [showResult, setShowResult] = useState<any>({});
     return <Card title="Данные аналитики">
         <FormWrapper name="analytics data">
             <Label>
@@ -125,7 +126,7 @@ export const AnalyticsCard = observer(() => {
             </Label>
 
             <ButtonWrapper type='primary' htmlType="submit" onClick={() => {
-                store.submitAnalyticsCardForm();
+                setShowResult(store.submitAnalyticsCardForm());
             }}>
                 Получить данные аналитики
             </ButtonWrapper>
@@ -134,9 +135,10 @@ export const AnalyticsCard = observer(() => {
 });
 
 const FormWrapper = styled(Form)`
-    max-width: 650px;
+    max-width: 550px;
 `;
 
 const ButtonWrapper = styled(Button)`
+    margin-top: 10px;
     width: 100%;
 `;

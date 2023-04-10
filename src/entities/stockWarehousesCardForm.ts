@@ -5,6 +5,7 @@ export class StockWarehouseCardForm {
     limit = '';
     offset = '';
     warehouse_type = '';
+    result = {} as any;
 
     constructor() {
         makeAutoObservable(this);
@@ -27,6 +28,8 @@ export class StockWarehouseCardForm {
             offset: this.offset,
             limit: this.limit,
             warehouse_type: this.warehouse_type,
+        }).then(r => {
+            this.result = r.data;
         });
     }
 }

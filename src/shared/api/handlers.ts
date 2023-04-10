@@ -15,12 +15,11 @@ export const postAnalyticsData = (data: any) => {
 
 
 export const postWarehousesData = (data: any) => {
-    axios.post(`${URL}/v2/analytics/stock_on_warehouses`, data, {
+    return axios.post(`${URL}/v2/analytics/stock_on_warehouses`, data, {
         'headers': {
             'Client-Id':  localStorage.getItem('clientId'),
             'Api-Key': localStorage.getItem('password')
         }
-    })
-        .then(r => r)
-        .catch(r => r)
+    }).then(r => r)
+      .catch(r => r)
 }

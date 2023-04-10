@@ -18,6 +18,6 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     gap: 50px 0;
-    width: 650px;
+    width: 550px;
     margin: 0 auto;
 `;

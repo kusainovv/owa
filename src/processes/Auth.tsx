@@ -12,7 +12,7 @@ export const Auth = () => {
                 <Input value={clientIdField} onChange={(e) => setClientIdField(e.target.value)} />
             </Form.Item>
             
-            <Form.Item label='Пароль'>
+            <Form.Item label='API Token'>
                 <Input.Password value={passwordField} onChange={(e) => setPasswordField(e.target.value)} />
             </Form.Item>
         

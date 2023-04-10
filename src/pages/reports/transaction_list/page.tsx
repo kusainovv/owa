@@ -40,7 +40,7 @@ export const TransactionListCard = () => {
 }
 
 const FormWrapper = styled(Form)`
-    max-width: 650px;
+    max-width: 550px;
 `;
 
 const ButtonWrapper = styled(Button)`

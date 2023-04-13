@@ -6,7 +6,7 @@ import { NumericInput } from '../../../widgets/table/NumericInput';
 import { observer } from 'mobx-react';
 import { StockWarehouseCardForm } from '../../../entities/stockWarehousesCardForm';
 import { postWarehousesData } from '../../../shared/api/handlers';
-
+import { CSVLink, CSVDownload } from "react-csv";
 
 const columns = [
     {
@@ -101,6 +101,17 @@ export const StockWarehouseCard = observer(() => {
         </Card>
 
         <Table columns={columns} dataSource={results?.result?.rows} />
+    
+        {
+            results?.result?.rows && <CSVLinkWrapper
+            data={results?.result?.rows}
+            onClick={() => {
+            console.log("clicked") 
+            }}
+        >
+            Скачать
+        </CSVLinkWrapper>
+        }
     </>
 });
 
@@ -110,4 +121,11 @@ const FormWrapper = styled(Form)`
 
 const ButtonWrapper = styled(Button)`
     width: 100%;
+`;
+
+const CSVLinkWrapper = styled(CSVLink)`
+    background-color: #1677ff;
+    padding: 10px 40px;
+    color: white;
+    border-radius: 6px;
 `;

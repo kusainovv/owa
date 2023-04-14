@@ -1,3 +1,4 @@
+import styled from '@emotion/styled';
 import { Layout, Menu } from 'antd';
 import Sider from 'antd/es/layout/Sider';
 import { Content, Header } from 'antd/es/layout/layout';
@@ -15,7 +16,7 @@ export const MainLayout = ({ content }: { content: ReactNode }) => {
       }}>owa</h2>
     </Header>
 
-    <Content style={{ padding: '0 50px' }}>
+    <ContentWrapper style={{ padding: '0 50px' }}>
       <Layout style={{ padding: '24px 0' }}>
         <Sider width={200} style={{ height: 'fit-content' }}>
           <Menu
@@ -58,6 +59,9 @@ export const MainLayout = ({ content }: { content: ReactNode }) => {
           {content}
         </Content>
       </Layout>
-    </Content>
+    </ContentWrapper>
   </Layout>
 }
+
+
+const ContentWrapper = styled(Content)``;

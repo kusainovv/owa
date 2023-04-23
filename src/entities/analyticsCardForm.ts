@@ -11,6 +11,7 @@ export class AnalyticsCardForm {
     metrics = [] as typeof AnalyticsCardDimension[];
     offset = '';
     sort = [] as string[];
+    result = null;
 
     constructor() {
         makeAutoObservable(this);
@@ -60,6 +61,6 @@ export class AnalyticsCardForm {
             metrics: this.metrics,
             offset: this.offset,
             sort: this.sort
-        });
+        }).then(r => this.result = r.data);
     }
 }

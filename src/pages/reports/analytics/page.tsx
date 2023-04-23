@@ -1,15 +1,33 @@
-import { Button, Card, Form, Input, Select } from "antd";
+import { Button, Card, Form, Input, Select, Table } from "antd";
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { NumericInput } from "../../../widgets/table/NumericInput";
 import { Label } from "../../../shared/styling/Label";
 import { observer } from "mobx-react";
 import { AnalyticsCardForm } from "../../../entities/analyticsCardForm";
+import { CSVLinkWrapper } from "../../../widgets/exel/ExportButton";
+import { postAnalyticsData } from "../../../shared/api/handlers";
+
+
+const columns = [
+    {
+        title: 'id',
+        dataIndex: 'id',
+        key: 'id',
+    },
+    {
+        title: 'name',
+        dataIndex: 'name',
+        key: 'name',
+    },
+];
+
 
 const store = new AnalyticsCardForm();
   
 export const AnalyticsCard = observer(() => {
-    const [showResult, setShowResult] = useState<any>({});
+    const [results, setShowResult] = useState<any>({});
+    console.warn(results)
     return <Card title="Данные аналитики">
         <FormWrapper name="analytics data">
             <Label>
@@ -53,7 +71,7 @@ export const AnalyticsCard = observer(() => {
             
             <Label>
                 Фильтры
-                <Input placeholder="2021-10-15" value={store.filters} onChange={(e) => {
+                <Input placeholder="" value={store.filters} onChange={(e) => {
                     store.updateFiltersField(e.target.value);
                 }} />
             </Label>
@@ -126,11 +144,33 @@ export const AnalyticsCard = observer(() => {
             </Label>
 
             <ButtonWrapper type='primary' htmlType="submit" onClick={() => {
-                setShowResult(store.submitAnalyticsCardForm());
+                postAnalyticsData({
+                    date_from: store.date_from,
+                    date_to: store.date_to,
+                    dimension: store.dimension,
+                    filters: store.filters,
+                    limit: store.limit,
+                    metrics: store.metrics,
+                    offset: store.offset,
+                    sort: store.sort
+                }).then(r => setShowResult(r));
             }}>
                 Получить данные аналитики
             </ButtonWrapper>
         </FormWrapper>
+
+        <Table columns={columns} dataSource={results?.data?.result?.data[0]?.dimensions} />
+    
+        {
+            results?.data?.result?.data?.length && <CSVLinkWrapper
+            data={results?.data?.result?.data[0]?.dimensions}
+            onClick={() => {
+            console.log("clicked") 
+            }}
+        >
+            Скачать
+        </CSVLinkWrapper>
+        }
     </Card>
 });
 
